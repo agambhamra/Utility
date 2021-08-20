@@ -11,19 +11,23 @@ $(document).ready(function(){
   	{
   		url: "https://api.ipify.org/?format=json", success: function(result)
 		{
-			ipAdress = result.ip; 
+			const ipAdress = result.ip; 
 			const urlParams = new URLSearchParams(window.location.search);
 			const uid = urlParams.get('uid');
 			const key = urlParams.get('key');
-			const server = urlParams.get('server');
+			const url = urlParams.get('url');
 			$.ajax(
 			{
 				type: 'POST',
-				url: "https://"+server+"/suite/webapi/ip?ip="+ipAdress+"&uid="+uid, 
+				url: url, 
 				headers: {
-				"content-type":"text/plain;charset=UTF-8",
-				"authorization":"Basic "+ key
-			   }
+					"content-type":"application/json",
+					"authorization": key
+				},
+				body: {
+					"ip": ipAdress,
+					"uid": uid
+				}
 			}
 			);
   		}
