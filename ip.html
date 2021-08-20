@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>IP</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $.ajax(
+  	{
+  		url: "https://api.ipify.org/?format=json", success: function(result)
+		{
+			ipAdress = result.ip; 
+			const urlParams = new URLSearchParams(window.location.search);
+			const uid = urlParams.get('uid');
+			const key = urlParams.get('key');
+			const server = urlParams.get('server');
+			$.ajax(
+			{
+				url: "https://"+server+"/suite/webapi/ip?ip="+ipAdress+"&uid="+uid, 
+				headers: {
+				"content-type":"text/plain;charset=UTF-8",
+				"authorization":"Basic "+ key
+			   }
+			}
+			);
+  		}
+  	}
+  	);
+  }
+ );
+</script>
+<body>
+</body>
+</html>
