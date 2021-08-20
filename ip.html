@@ -24,10 +24,12 @@ $(document).ready(function(){
 					"content-type":"application/json",
 					"authorization": key
 				},
-				data: {
-					"ip": ipAdress,
-					"uid": uid
-				}
+				data: JSON.stringify(
+					{
+						"ip": ipAdress,
+						"uid": uid
+					}
+				)
 			}
 			);
   		}
