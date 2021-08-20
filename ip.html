@@ -18,6 +18,7 @@ $(document).ready(function(){
 			const server = urlParams.get('server');
 			$.ajax(
 			{
+				type: 'POST',
 				url: "https://"+server+"/suite/webapi/ip?ip="+ipAdress+"&uid="+uid, 
 				headers: {
 				"content-type":"text/plain;charset=UTF-8",
