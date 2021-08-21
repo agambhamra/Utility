@@ -1,4 +1,3 @@
-<script type="text/javascript">
 $(document).ready(function(){
   alert(12);
 	const urlParams = new URLSearchParams(window.location.search);
@@ -34,4 +33,3 @@ $(document).ready(function(){
 	  	}
   	);
 });
-</script>
