@@ -1,5 +1,4 @@
 $(document).ready(function(){
-  alert(12);
 	const urlParams = new URLSearchParams(window.location.search);
 	const uid = urlParams.get('uid');
 	const key = urlParams.get('key');
